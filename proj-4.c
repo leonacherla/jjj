@@ -30,7 +30,6 @@ readerSemaphore = malloc(sizeof(Sem));
 writerSemaphore = malloc(sizeof(Sem)); 
 InitSem(mx, 1); InitSem(readerSemaphore, 0); 
 InitSem(writerSemaphore, 0); 
-InitQ(&RunQ); 
 int iteratorA=0;
 int iteratorB=0; 
 int iteratorC=0;
@@ -43,8 +42,6 @@ if (iteratorC < WRITER) {
 start_thread(writer);
 iteratorB++; iteratorC++;
 }}
-puts("runQ content:");
-printQ(RunQ);
 puts("\nstarting threads\n");
 run();
 }
