@@ -33,18 +33,18 @@ void (*w2)();
 
 int main()
 {	
-	RunQ = new_Queue();
+	RunQ = addQ();
 
 	mutex = (Sem*)malloc(sizeof(Sem));
-	mutex->queue = new_Queue();
+	mutex->queue = addQ();
 	initSem(mutex, 1);
 
 	rsem = (Sem*)malloc(sizeof(Sem));
-	rsem->queue = new_Queue();
+	rsem->queue = addQ();
 	initSem(rsem,0);
 
 	wsem = (Sem*)malloc(sizeof(Sem));
-	wsem->queue = new_Queue();
+	wsem->queue = addQ();
 	initSem(wsem,0);
 
 	r1 = reader;
