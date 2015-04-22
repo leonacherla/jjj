@@ -13,8 +13,8 @@ int rwc = 0; //reader waiting count
 int wwc = 0; //writer waiting count
 int wc = 0; //write count
 int test[3] = {1,2,3};
-int read = 1;
-int write = 1;
+int read=1;
+int write=1;
 
 /********************
  * Function Prototypes
