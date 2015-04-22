@@ -7,7 +7,7 @@
 
 TCB_t *runQ = 0;
 Sem *mx = 0;
-Sem *readerSemaphore = 0,
+Sem *readerSemaphore = 0;
 Sem *writerSemaphore = 0;
 int x = 0;
 int readerCount = 0;
