@@ -24,10 +24,17 @@ void writer_start();
 void writer_end();
 
 void main() {
-    TCB_t threads[5]; mx = malloc(sizeof(Sem)); readerSemaphore = malloc(sizeof(Sem)); writerSemaphore = malloc(sizeof(Sem)); InitSem(mx, 1); InitSem(readerSemaphore, 0); InitSem(writerSemaphore, 0); InitQ(&RunQ); int iteratorA=0;
-int iteratorB=0; int iteratorC=0;
-    
-	while (iteratorA < READER + WRITER) {	
+    TCB_t threads[5]; 
+mx = malloc(sizeof(Sem)); 
+readerSemaphore = malloc(sizeof(Sem)); 
+writerSemaphore = malloc(sizeof(Sem)); 
+InitSem(mx, 1); InitSem(readerSemaphore, 0); 
+InitSem(writerSemaphore, 0); 
+InitQ(&RunQ); 
+int iteratorA=0;
+int iteratorB=0; 
+int iteratorC=0;
+    while (iteratorA < READER + WRITER) {	
 		if (iteratorB < READER ) {
 			puts("Adding reader");
 			start_thread(reader);
