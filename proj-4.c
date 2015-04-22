@@ -36,15 +36,15 @@ int main()
 	RunQ = newItem();
 
 	mutex = (Sem*)malloc(sizeof(Sem));
-	mutex->Q = newItem();
+	mutex->queue = newItem();
 	initSem(mutex, 1);
 
 	rsem = (Sem*)malloc(sizeof(Sem));
-	rsem->Q = newItem();
+	rsem->queue = newItem();
 	initSem(rsem,0);
 
 	wsem = (Sem*)malloc(sizeof(Sem));
-	wsem->Q = newItem();
+	wsem->queue = newItem();
 	initSem(wsem,0);
 
 	r1 = reader;
