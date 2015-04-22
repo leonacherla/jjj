@@ -28,7 +28,7 @@ TCB_t* threads[5];
 mx = malloc(sizeof(Sem)); 
 readerSemaphore = malloc(sizeof(Sem)); 
 writerSemaphore = malloc(sizeof(Sem)); 
-initSem(mx, 1); InitSem(readerSemaphore, 0); 
+initSem(mx, 1); initSem(readerSemaphore, 0); 
 initSem(writerSemaphore, 0); 
 int iteratorA=0;
 int iteratorB=0; 
