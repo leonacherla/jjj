@@ -41,24 +41,24 @@ int iteratorA=0;
     int iteratorB=0;
     int iteratorC=0;
     
-    
-
-    while (iteratorA< 3) {
-        start_thread(reader);
-        iteratorA++;
-        printQ(RunQ);
-        run();
-    }
-    
-    while (iteratorB< 2) {
-        start_thread(writer);
-        iteratorB++;
-        printQ(RunQ);
-        run();
-    }
-    
-    
+	while (iteratorA < READER + WRITER) {	
+		if (iteratorB < READER ) {
+			puts("Adding reader");
+			start_thread(reader);
+			iteratorA++; iteratorB++;
+		}
+		if (iteratorC < WRITER) {
+			puts("Adding writer");
+			start_thread(writer);
+			iteratorB++; iteratorC++;
+		}
+	}
+	puts("runQ content:");
+	printQ(RunQ);
+	puts("\nstarting threads\n");
+	run();
 }
+
 
 
 
