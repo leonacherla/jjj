@@ -24,8 +24,6 @@ void writer_start();
 void writer_end();
 
 void main() {
-
-    
     TCB_t* threads[5];
     mx = malloc(sizeof(Sem));
 readerSemaphore = malloc(sizeof(Sem));
