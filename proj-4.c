@@ -36,15 +36,15 @@ int main()
 	RunQ = newItem();
 
 	mutex = (Sem*)malloc(sizeof(Sem));
-	mutex->queue = newItem();
+	mutex->Q = newItem();
 	initSem(mutex, 1);
 
 	rsem = (Sem*)malloc(sizeof(Sem));
-	rsem->queue = newItem();
+	rsem->Q = newItem();
 	initSem(rsem,0);
 
 	wsem = (Sem*)malloc(sizeof(Sem));
-	wsem->queue = newItem();
+	wsem->Q = newItem();
 	initSem(wsem,0);
 
 	r1 = reader;
@@ -68,7 +68,7 @@ int main()
 
 void reader()
 {
- printf("----Reader %d: %p----\n", read, RunQ->head);
+ printf("----Reader %d: %p----\n", read, RunQ->first);
  read++;
 	
  while(1){
@@ -89,7 +89,7 @@ void reader()
 
 
 	//CS - read occurs here
-	printf("Reader %p\n", RunQ->head);
+	printf("Reader %p\n", RunQ->first);
 	printf("Reading array: %d %d %d\n", test[0], test[1], test[2]);
 
 	// Reader exit
@@ -105,7 +105,7 @@ void reader()
 void writer()
 {
  int i;
- printf("----Writer %d: %p----\n", write, RunQ->head);
+ printf("----Writer %d: %p----\n", write, RunQ->first);
  write++;
 
   while(1) {
@@ -123,7 +123,7 @@ void writer()
 
 
 	//CS - write occurs here
-	printf("Writer %p\n", RunQ->head);
+	printf("Writer %p\n", RunQ->first);
 	for (i = 0; i < 3; i++) {
 		test[i] = test[i] * 4;
 	}
