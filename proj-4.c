@@ -13,8 +13,8 @@ int rwc = 0; //reader waiting count
 int wwc = 0; //writer waiting count
 int wc = 0; //write count
 int test[3] = {1,2,3};
-int read=1;
-int write=1;
+int readcount =1;
+int writecount =1;
 
 /********************
  * Function Prototypes
@@ -68,8 +68,8 @@ int main()
 
 void reader()
 {
- printf("----Reader %d: %p----\n", read, RunQ->first);
- read++;
+ printf("----Reader %d: %p\n", readcount, RunQ->first);
+ readcount++;
 	
  while(1){
 	// Reader enter
@@ -105,8 +105,8 @@ void reader()
 void writer()
 {
  int i;
- printf("----Writer %d: %p----\n", write, RunQ->first);
- write++;
+ printf("----Writer %d: %p\n", writecount, RunQ->first);
+ writecount++;
 
   while(1) {
 	// Writer enter
